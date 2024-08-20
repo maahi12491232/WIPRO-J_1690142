@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame Layout</title>
+    <style>
+        body { margin: 0; }
+        .container { display: flex; flex-direction: column; height: 100vh; }
+        .header { flex: 0 1 30%; background: #f4f4f4; }
+        .main { flex: 1; display: flex; }
+        .menu { flex: 0 1 30%; background: #e0e0e0; padding: 10px; }
+        .content { flex: 1; padding: 10px; }
+        iframe { border: none; width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header with image -->
+        <div class="header">
+            <iframe srcdoc='
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4eP1lHO2DMwXAB2MQ1JqIUyHwt8Wd9O-Xw&s" alt="Header Image" style="width:100%; height:100%;">
+            '></iframe>
+        </div>
+        
+        <!-- Main content area -->
+        <div class="main">
+            <!-- Menu section -->
+            <div class="menu">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="font.html" target="contentFrame">Font</a></li>
+                    <li><a href="alignment.html" target="contentFrame">Alignment</a></li>
+                </ul>
+            </div>
+
+            <!-- Content section -->
+            <div class="content">
+                <iframe name="contentFrame" srcdoc='
+                    <h2>Welcome! Please select an option from the menu.</h2>
+                '></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Replace srcdoc content of iframes with actual content
+        const fontContent = `
+            <div style="font-family: 'Agency FB';">Agency FB</div>
+            <div style="font-family: 'Cambria';">Cambria</div>
+            <div style="font-family: 'Elephant';">Elephant</div>
+            <div style="font-family: 'Verdana';">Verdana</div>
+            <div style="font-family: 'Times New Roman';">Times New Roman</div>
+        `;
+        
+        const alignmentContent = `
+            <div style="text-align: left;">Left Aligned Text</div>
+            <div style="text-align: center;">Center Aligned Text</div>
+            <div style="text-align: right;">Right Aligned Text</div>
+            <div style="text-align: justify;">Justified Text</div>
+        `;
+
+        document.querySelectorAll('a[href="font.html"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('iframe[name="contentFrame"]').srcdoc = fontContent;
+            });
+        });
+
+        document.querySelectorAll('a[href="alignment.html"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('iframe[name="contentFrame"]').srcdoc = alignmentContent;
+            });
+        });
+    </script>
+
+</body>
+</html>

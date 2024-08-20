@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitors Information</title>
+    <style>
+        h1, table { text-align: center; margin: 0 auto; }
+        td { padding: 10px; }
+        hr { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+    <h1>Visitors Information</h1>
+    <hr>
+
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <td><label for="email">Email Address:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td>User's Interest:</td>
+                <td>
+                    <input type="checkbox" id="research" name="interest" value="research">
+                    <label for="research">Web for Research</label><br>
+                    <input type="checkbox" id="purchase" name="interest" value="purchase">
+                    <label for="purchase">Web for Purchase</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="occupation">Occupation:</label></td>
+                <td>
+                    <select id="occupation" name="occupation" required>
+                        <option value="" disabled selected>(select one)</option>
+                        <option value="student">Student</option>
+                        <option value="professional">Professional</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Want us to send you junk emails?</td>
+                <td>
+                    <input type="radio" id="absolutely" name="junk_email" value="absolutely" required>
+                    <label for="absolutely">Absolutely</label><br>
+                    <input type="radio" id="no_way" name="junk_email" value="no_way">
+                    <label for="no_way">No way man</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
